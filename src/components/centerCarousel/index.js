@@ -2,8 +2,6 @@ import React  from "react";
 import Slider from "react-slick";
 import { Grid } from "@mui/material";
 import { makeStyles } from "@mui/styles";
-import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight';
-import ArrowCircleLeftIcon from '@mui/icons-material/ArrowCircleLeft';
 
 
 const useStyles = makeStyles((theme) => ({

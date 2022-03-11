@@ -2,13 +2,14 @@ import React from "react";
 import { makeStyles } from "@mui/styles";
 import CallMadeIcon from "@mui/icons-material/CallMade";
 import CallReceivedIcon from "@mui/icons-material/CallReceived";
-import {Add, BoltTwoTone } from "@mui/icons-material";
+import { Add, BoltTwoTone } from "@mui/icons-material";
 import {
   CardComponent,
   CarouselSliders,
   LineCharts,
   CenterMode,
   PChart,
+  CustomizedTables,
 } from "../components";
 import withNavBars from "../HOC/withNavBar";
 import {
@@ -26,22 +27,15 @@ import {
   ListItemIcon,
   Avatar,
   ListItemText,
-  CardActionArea,
+  Box,
+  TextField,
 } from "@mui/material";
-
 
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
     background: "white",
   },
-
-  openroot: {
-    width: "100%",
-    background: "white",
-  },
-  
-
   button: {
     display: "flex",
     justifyContent: "flex-end",
@@ -61,8 +55,9 @@ const useStyles = makeStyles((theme) => ({
   },
   container: {
     position: "absolute",
-    paddingTop: 70,
-    margin: 10,
+    paddingTop: 90,
+    padding: 5,
+    width: "100%",
   },
   cardQuick: {
     height: 530,
@@ -99,11 +94,57 @@ const useStyles = makeStyles((theme) => ({
     padding: 15,
     marginTop: 35,
   },
-  pie: {},
+  cardI:{
+    borderRadius: "16px",
+    boxShadow:
+      "rgb(145 158 171 / 20%) 0px 0px 2px 0px, rgb(145 158 171 / 12%) 0px 12px 24px -4px",
+  },
+  card: {
+    height: 530,
+    backgroundColor: "rgb(244, 246, 248)",
+    borderRadius: "16px",
+    boxShadow:
+      "rgb(145 158 171 / 20%) 0px 0px 2px 0px, rgb(145 158 171 / 12%) 0px 12px 24px -4px",
+  },
+  card2: {
+    borderRadius: "16px",
+    marginTop: "-15px",
+    [theme.breakpoints.down('sm')]: {
+      marginTop:5,
+    },
+    boxShadow:
+      "rgb(145 158 171 / 20%) 0px 0px 2px 0px, rgb(145 158 171 / 12%) 0px 12px 24px -4px",
+  },
+  card3:{
+    height: 620,
+    borderRadius: "16px",
+    boxShadow:
+      "rgb(145 158 171 / 20%) 0px 0px 2px 0px, rgb(145 158 171 / 12%) 0px 12px 24px -4px",
+  },
+  card4:{
+    borderRadius: "16px",
+    marginTop: "-72px",
+    [theme.breakpoints.down('sm')]: {
+      marginTop:5,
+    },
+    boxShadow:
+      "rgb(145 158 171 / 20%) 0px 0px 2px 0px, rgb(145 158 171 / 12%) 0px 12px 24px -4px",
+  },
+  card5:{
+    height: 420,
+    borderRadius: "16px",
+    marginTop: "-120px",
+    backgroundImage:
+      "linear-gradient(135deg, rgb(0, 171, 85) 0%, rgb(0, 123, 85) 100%)",
+    boxShadow:
+      "rgb(145 158 171 / 20%) 0px 0px 2px 0px, rgb(145 158 171 / 12%) 0px 12px 24px -4px",
+  }
 }));
 
 const MainScreen = (props) => {
+  // const classes = useStyles();
   const classes = useStyles();
+
   const [value, setValue] = React.useState(0);
 
   const handleSliderChange = (event, newValue) => {
@@ -129,91 +170,82 @@ const MainScreen = (props) => {
   let data = [
     {
       img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQL31834A64fuv8BfepwAHOv7XjZPMLm7JWLw&usqp=CAU",
-      tittle: "FEATURED APP",
-      des: "Lightroom mobile - Koloro",
-      con: "Apply these 7 secret Thecnology",
     },
     {
       img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQL31834A64fuv8BfepwAHOv7XjZPMLm7JWLw&usqp=CAU",
-      tittle: "FEATURED APP",
-      des: "Lightroom mobile - Koloro",
-      con: "Apply these 7 secret Thecnology",
+     
     },
     {
       img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdcclmCbmjsmTiuv-Id85fuBChQu9bE641dA&usqp=CAU",
-      tittle: "FEATURED APP",
-      des: "Lightroom mobile - Koloro",
-      con: "Apply these 7 secret Thecnology",
     },
   ];
   let data2 = [
     {
-      img: "https://media.istockphoto.com/photos/excited-happy-indian-girl-celebrating-online-win-holding-phone-picture-id1188562868?k=20&m=1188562868&s=612x612&w=0&h=QHvJ0Jo8q5un_R0gbZ7ZgO__qrKzUrhro2-olhLcfKs=",
+      img: "/images/avatar_1.jpg",
       tittle: "FEATURED APP",
       des: "Lightroom mobile - Koloro",
       con: "Apply these 7 secret Thecnology",
     },
     {
-      img: "https://minimal-assets-api.vercel.app/assets/images/avatars/avatar_1.jpg",
+      img: "/images/avatar_5.jpg",
       tittle: "FEATURED APP",
       des: "Lightroom mobile - Koloro",
       con: "Apply these 7 secret Thecnology",
     },
     {
-      img: "https://minimal-assets-api.vercel.app/assets/images/avatars/avatar_12.jpg",
+      img: "/images/avatar_6.jpg",
       tittle: "FEATURED APP",
       des: "Lightroom mobile - Koloro",
       con: "Apply these 7 secret Thecnology",
     },
     {
-      img: "https://minimal-assets-api.vercel.app/assets/images/avatars/avatar_2.jpg",
+      img: "/images/avatar_5.jpg",
       tittle: "FEATURED APP",
       des: "Lightroom mobile - Koloro",
       con: "Apply these 7 secret Thecnology",
     },
     {
-      img: "https://minimal-assets-api.vercel.app/assets/images/avatars/avatar_11.jpg",
+      img: "/images/avatar_2.jpg",
       tittle: "FEATURED APP",
       des: "Lightroom mobile - Koloro",
       con: "Apply these 7 secret Thecnology",
     },
     {
-      img: "https://media.istockphoto.com/photos/productivity-powered-by-digital-technology-picture-id1330965067?b=1&k=20&m=1330965067&s=170667a&w=0&h=ys_MV3zYkn2HJCtHC4s_03Sz1MUC2BZv6PcDdk__XSc=",
+      img: "/images/avatar_9.jpg",
       tittle: "FEATURED APP",
       des: "Lightroom mobile - Koloro",
       con: "Apply these 7 secret Thecnology",
     },
     {
-      img: "https://minimal-assets-api.vercel.app/assets/images/avatars/avatar_11.jpg",
+      img: "/images/avatar_7.jpg",
       tittle: "FEATURED APP",
       des: "Lightroom mobile - Koloro",
       con: "Apply these 7 secret Thecnology",
     },
-    
   ];
   let Contacts = [
     {
-      icon: "https://res.cloudinary.com/minimal-ui/image/upload/v1614655910/upload_minimal/avatar/minimal_avatar.jpg",
+      icon: "/images/avatar_5.jpg",
       heading: "Javian Simon",
       notes: "nanne_abernathy.com",
     },
     {
-      icon: "https://minimal-assets-api.vercel.app/assets/images/avatars/avatar_6.jpg",
+      icon: "/images/avatar_7.jpg",
       heading: "Lucian Obrian",
       notes: "lucian_brian.com",
     },
     {
-      icon: "https://minimal-assets-api.vercel.app/assets/images/avatars/avatar_7.jpg",
+      icon: "/images/avatar_12.jpg",
       heading: "Deja Brady",
       notes: "deja_brady.com",
     },
     {
-      icon: "https://minimal-assets-api.vercel.app/assets/images/avatars/avatar_8.jpg",
+      icon: "/images/avatar_13.jpg",
       heading: "Harrison Stien",
       notes: "harrison_stien.com",
     },
     {
-      icon: "https://minimal-assets-api.vercel.app/assets/images/avatars/avatar_9.jpg",
+      icon: "/images/avatar_10.jpg",
       heading: "Reece Chung",
       notes: "reece_chung.com",
     },
@@ -221,8 +253,7 @@ const MainScreen = (props) => {
 
   return (
     <div className={classes.root}>
-    
-       {/* First Line */}
+      {/* First Line */}
       <Grid container className={classes.container} spacing={2}>
         {card.map((items, index) => (
           <Grid item xs={12} sm={6} md={4} lg={3}>
@@ -233,8 +264,10 @@ const MainScreen = (props) => {
           <CarouselSliders data={data} />
         </Grid>
         {/* Second Line */}
-        <Grid item xs={12} sm={6} md={4} lg={7} style={{marginTop:10}}>
-          <Card style={{ borderRadius: "16px" }}>
+        <Grid item xs={12} sm={6} md={4} lg={7} style={{ marginTop: 10 }}>
+          <Card
+           className={classes.cardI}
+          >
             <div
               style={{
                 display: "flex",
@@ -263,14 +296,8 @@ const MainScreen = (props) => {
             <LineCharts />
           </Card>
         </Grid>
-        <Grid item xs={12} sm={6} md={4} lg={4} style={{marginTop:10}}>
-          <Card
-            style={{
-              height: 530,
-              backgroundColor: "rgb(244, 246, 248)",
-              borderRadius: "16px",
-            }}
-          >
+        <Grid item xs={12} sm={6} md={4} lg={4} style={{ marginTop: 10 }}>
+          <Card className={classes.card}>
             <div className={classes.bigDiv}>
               <div>
                 <Typography variant="h6" style={{ fontWeight: 600 }}>
@@ -334,7 +361,9 @@ const MainScreen = (props) => {
         </Grid>
         {/* Third Line */}
         <Grid item xs={12} sm={6} md={4} lg={7}>
-          <Card style={{ borderRadius: "16px", marginTop: "-15px" }}>
+          <Card
+           className={classes.card2}
+          >
             <div
               style={{
                 display: "flex",
@@ -378,10 +407,7 @@ const MainScreen = (props) => {
         </Grid>
         <Grid item xs={12} sm={6} md={4} lg={4}>
           <Card
-            style={{
-              height: 620,
-              borderRadius: "16px",
-            }}
+            className={classes.card3}
           >
             <div className={classes.currenct}>
               <div style={{ flexDirection: "column" }}>
@@ -425,85 +451,129 @@ const MainScreen = (props) => {
                 ))}
               </CardContent>
             )}
-            <div style={{display:"flex",justifyContent:"center",alignItems:"center"}}>
-            <Button
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <Button
                 variant="outlined"
-                style={{ padding: 10,width:'300px',backgroundColor:"#ffff",color:"#111" }}
+                style={{
+                  padding: 10,
+                  width: "300px",
+                  backgroundColor: "#ffff",
+                  color: "#111",
+                }}
               >
                 View All
               </Button>
-
             </div>
-      
-           
           </Card>
         </Grid>
         {/* Fourth Line */}
         <Grid item xs={12} sm={6} md={4} lg={7}>
-          <Card style={{ borderRadius: "16px", marginTop: "-72px" }}>
-           
+          <Card
+           className={classes.card4}
+          >
+            <Typography variant="h6" style={{ fontWeight: 600, margin: 20 }}>
+              Recent Transactions
+            </Typography>
+            <div style={{ padding: 10 }}>
+              <CustomizedTables />
+            </div>
           </Card>
         </Grid>
         <Grid item xs={12} sm={6} md={4} lg={4}>
-          <Card
+          <Box
             style={{
-              height: 620,
-              borderRadius: "16px",
+              lineHeight: 0,
+              display: "block",
+              overflow: "hidden",
+              left: "40px",
+              zIndex: 9,
+              width: "140px",
+              position: "relative",
+              filter: "drop-shadow(rgba(0, 0, 0, 0.24) 0px 12px 24px)",
             }}
           >
-            <div className={classes.currenct}>
-              <div style={{ flexDirection: "column" }}>
-                <Typography variant="h6" style={{ fontWeight: 600 }}>
-                  Contacts
-                </Typography>
-                <Typography variant="subtitle2" style={{ opacity: 0.55 }}>
-                  You Have 122 Contacts
-                </Typography>
-              </div>
-              <div>
-                <IconButton>
-                  <Add style={{ color: "#00ab55" }} />
-                </IconButton>
-              </div>
-            </div>
-            {Contacts?.length > 0 && (
-              <CardContent>
-                {Contacts?.map((items, index) => (
-                  <List style={{ overflow: "auto" }}>
-                    <div>
-                      <ListItem>
-                        <ListItemIcon>
-                          <Avatar
-                            src={items.icon}
-                            sx={{ width: "55.56px", height: "55.56px" }}
-                          />
-                        </ListItemIcon>
-                        <ListItemText
-                          style={{
-                            marginLeft: 10,
-                          }}
-                          primary={items.heading}
-                          secondary={items.notes}
-                        />
-
-                        <BoltTwoTone />
-                      </ListItem>
-                    </div>
-                  </List>
-                ))}
-              </CardContent>
-            )}
-            <div style={{display:"flex",justifyContent:"center",alignItems:"center"}}>
-            <Button
-                variant="outlined"
-                style={{ padding: 10,width:'300px',backgroundColor:"#ffff",color:"#111" }}
+            <img src="/images/illustration_invite.png" alt="invite"></img>
+          </Box>
+          <Card
+            className={classes.card5}
+          >
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                marginTop: "150px",
+                color: "#fff",
+                width: "75%",
+              }}
+            >
+              <Typography
+                style={{
+                  fontSize: "1.5rem",
+                  paddingLeft: "35px",
+                  fontWeight: 700,
+                }}
               >
-                View All
-              </Button>
-
+                Invite Friends and Earn
+              </Typography>
+              <Typography
+                style={{
+                  fontSize: "3rem",
+                  paddingLeft: "15px",
+                  fontWeight: 700,
+                }}
+              >
+                $50
+              </Typography>
             </div>
-      
-           
+            <div>
+              <Typography
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  marginLeft: 33,
+                  color: "#fff",
+                  width: "75%",
+                  marginTop: "30px",
+                }}
+              >
+                Praesent egestas tristique nibh. Duis lobortis massa imperdiet
+                quam.
+              </Typography>
+            </div>
+            <div
+              style={{
+                marginLeft: 33,
+                marginTop: 10,
+                display: "flex",
+                alignItems: "center",
+              }}
+            >
+              <TextField
+                size="small"
+                placeholder="Enter"
+                style={{
+                  width: "40%",
+                  borderRadius: "6px",
+                  color: "rgb(255, 255, 255)",
+                }}
+              ></TextField>
+              <Button
+                variant="contained"
+                style={{
+                  marginLeft: 5,
+                  backgroundColor: "rgb(255, 193, 7)",
+                  color: "rgb(33, 43, 54)",
+                }}
+              >
+                Invite
+              </Button>
+            </div>
           </Card>
         </Grid>
       </Grid>

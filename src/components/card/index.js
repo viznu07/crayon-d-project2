@@ -1,6 +1,6 @@
 import React from "react";
 import { Card,Typography,CardContent, Icon} from "@mui/material";
-import { makeStyles } from "@material-ui/styles";
+import { makeStyles } from "@mui/styles";
 const drawerWidth = 260;
 
 const useStyles = makeStyles((theme) => ({
@@ -70,7 +70,10 @@ export const CardComponent =(props)=>{
   const {data} = props;
   
   return(
-    <Card style={{borderRadius:"16px",height:250}}>
+    <Card style={{borderRadius:"16px",height:250,
+    boxShadow:
+    "rgb(145 158 171 / 20%) 0px 0px 2px 0px, rgb(145 158 171 / 12%) 0px 12px 24px -4px",
+    }}>
     <CardContent className={data.type === "up" ? classes.cardUp : data.type === "down" ? classes.cardDown :null}>
      <Typography variant="body2" fontWeight={400}>{data.title}</Typography>
      <Typography variant="h4" fontWeight={700} lineHeight={1.75}>{data.value}</Typography>

@@ -22,7 +22,8 @@ export const CarouselSliders = ({
   };
 
   return (
-    <div style={{ cursor: "pointer" }}>
+    <div style={{ cursor: "pointer",
+     }}>
       <Grid container justifyContent="center">
         <Grid item xs={12} alignItems={"center"}>
           <Slider {...settings}>

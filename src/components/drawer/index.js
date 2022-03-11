@@ -6,7 +6,6 @@ import MuiAppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import List from "@mui/material/List";
 import CssBaseline from "@mui/material/CssBaseline";
-import Typography from "@mui/material/Typography";
 import { Avatar,Badge } from "@mui/material";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
@@ -16,7 +15,6 @@ import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
 import { Search } from "@mui/icons-material";
 import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
 import PeopleOutlineIcon from '@mui/icons-material/PeopleOutline';
@@ -104,7 +102,7 @@ export const DrawerComponent = (props) => {
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
-      <AppBar position="fixed" open={open}  style={{opacity:0.9,backgroundColor:"#ffff"}}>
+      <AppBar position="fixed" open={open}  style={{opacity:0.9,backgroundColor:"#ffff",boxShadow:"none"}}>
         <Toolbar
           style={{
             display: "flex",
@@ -129,7 +127,7 @@ export const DrawerComponent = (props) => {
             <Search color="primary"/>
           </Box>
           <div style={{ display: "flex", alignItems: "center",justifyContent:"space-around",width:'15%'}}>
-            <img src="https://minimal-assets-api.vercel.app/assets/icons/ic_flag_en.svg"></img>
+            <img src="https://minimal-assets-api.vercel.app/assets/icons/ic_flag_en.svg" alt="flag"></img>
             <Badge badgeContent={4} color="primary">
               <NotificationsNoneIcon color="action" />
             </Badge>
@@ -180,6 +178,8 @@ export const DrawerComponent = (props) => {
               <ListItemText primary={text} secondary={'admin'} sx={{ opacity: open ? 1 : 0 }} />
             </ListItemButton>
           ))}
+          <Divider/>
+          <ListItemText primary={'General'} sx={{ opacity: open ? 0.65 : 0,marginLeft:2 }}/>
           {["Banking"].map((text, index) => (
             <ListItemButton
               key={text}

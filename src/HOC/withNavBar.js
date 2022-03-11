@@ -18,9 +18,6 @@ const useStyles = makeStyles((theme) => ({
       marginLeft: drawerWidth,
       height: "100%",
       overflow: "auto",
-      padding: "10px",
-      paddingTop: "26px",
-     
     },
 }));
 

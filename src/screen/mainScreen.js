@@ -98,6 +98,9 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: "16px",
     boxShadow:
       "rgb(145 158 171 / 20%) 0px 0px 2px 0px, rgb(145 158 171 / 12%) 0px 12px 24px -4px",
+      [theme.breakpoints.down('sm')]: {
+        height:500,
+      },
   },
   card: {
     height: 530,
@@ -110,6 +113,9 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: "16px",
     marginTop: "-15px",
     [theme.breakpoints.down('sm')]: {
+      marginTop:5,
+    },
+    [theme.breakpoints.down('md')]: {
       marginTop:5,
     },
     boxShadow:
@@ -127,6 +133,9 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down('sm')]: {
       marginTop:5,
     },
+    [theme.breakpoints.down('md')]: {
+      marginTop:5,
+    },
     boxShadow:
       "rgb(145 158 171 / 20%) 0px 0px 2px 0px, rgb(145 158 171 / 12%) 0px 12px 24px -4px",
   },
@@ -138,7 +147,83 @@ const useStyles = makeStyles((theme) => ({
       "linear-gradient(135deg, rgb(0, 171, 85) 0%, rgb(0, 123, 85) 100%)",
     boxShadow:
       "rgb(145 158 171 / 20%) 0px 0px 2px 0px, rgb(145 158 171 / 12%) 0px 12px 24px -4px",
-  }
+  },
+  balanceStats:{
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    margin: 15,
+  },
+  expense:{
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    margin: 15,
+  },
+  cat:{
+    padding: 25,
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+  },
+  cat1:{
+    padding: 25,
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+  },
+  viewAll:{
+    padding: 10,
+                  width: "300px",
+                  backgroundColor: "#ffff",
+                  color: "#111",
+  },
+  invite:{
+    lineHeight: 0,
+    display: "block",
+    overflow: "hidden",
+    left: "40px",
+    zIndex: 9,
+    width: "140px",
+    position: "relative",
+    filter: "drop-shadow(rgba(0, 0, 0, 0.24) 0px 12px 24px)",
+  },
+  friends:{
+    display: "flex",
+    alignItems: "center",
+    marginTop: "150px",
+    color: "#fff",
+    width: "75%",
+  },
+  friendsText:{
+    display: "flex",
+    alignItems: "center",
+    marginLeft: 33,
+    color: "#fff",
+    width: "75%",
+    marginTop: "30px",
+  },
+   fifty:{
+    fontSize: "3rem",
+    paddingLeft: "15px",
+    fontWeight: 700,
+   },
+   enter:{
+    marginLeft: 33,
+    marginTop: 10,
+    display: "flex",
+    alignItems: "center",
+   },
+   enterText:{
+    width: "40%",
+    borderRadius: "6px",
+    color: "rgb(255, 255, 255)",
+   },
+   enterButton:{
+    marginLeft: 5,
+    backgroundColor: "rgb(255, 193, 7)",
+    color: "rgb(33, 43, 54)",
+   }
 }));
 
 const MainScreen = (props) => {
@@ -269,12 +354,7 @@ const MainScreen = (props) => {
            className={classes.cardI}
           >
             <div
-              style={{
-                display: "flex",
-                justifyContent: "space-between",
-                alignItems: "center",
-                margin: 15,
-              }}
+              className={classes.balanceStats}
             >
               <div style={{ flexDirection: "column" }}>
                 <Typography variant="h6" style={{ fontWeight: 600 }}>
@@ -365,12 +445,7 @@ const MainScreen = (props) => {
            className={classes.card2}
           >
             <div
-              style={{
-                display: "flex",
-                justifyContent: "space-between",
-                alignItems: "center",
-                margin: 15,
-              }}
+              className={classes.expense}
             >
               <Typography variant="h6" style={{ fontWeight: 600 }}>
                 Expence Categories
@@ -380,24 +455,14 @@ const MainScreen = (props) => {
             <Divider />
             <div style={{ display: "flex", justifyContent: "space-around" }}>
               <div
-                style={{
-                  padding: 25,
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                }}
+                className={classes.cat1}
               >
                 <Typography variant="h7">Categories</Typography>
                 <Typography variant="h4">6</Typography>
               </div>
               <Divider variant="horizontal" style={{ borderWidth: "1px" }} />
               <div
-                style={{
-                  padding: 25,
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                }}
+               className={classes.cat}
               >
                 <Typography variant="h7">Categories</Typography>
                 <Typography variant="h4">$18,675</Typography>
@@ -460,12 +525,7 @@ const MainScreen = (props) => {
             >
               <Button
                 variant="outlined"
-                style={{
-                  padding: 10,
-                  width: "300px",
-                  backgroundColor: "#ffff",
-                  color: "#111",
-                }}
+                className={classes.viewAll}
               >
                 View All
               </Button>
@@ -483,20 +543,15 @@ const MainScreen = (props) => {
             <div style={{ padding: 10 }}>
               <CustomizedTables />
             </div>
+            <Divider/>
+            <div style={{padding:20,display:"flex",alignItems:"center",justifyContent:"flex-end"}}>
+             View All
+            </div>
           </Card>
         </Grid>
         <Grid item xs={12} sm={6} md={4} lg={4}>
           <Box
-            style={{
-              lineHeight: 0,
-              display: "block",
-              overflow: "hidden",
-              left: "40px",
-              zIndex: 9,
-              width: "140px",
-              position: "relative",
-              filter: "drop-shadow(rgba(0, 0, 0, 0.24) 0px 12px 24px)",
-            }}
+           className={classes.invite}
           >
             <img src="/images/illustration_invite.png" alt="invite"></img>
           </Box>
@@ -504,13 +559,7 @@ const MainScreen = (props) => {
             className={classes.card5}
           >
             <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                marginTop: "150px",
-                color: "#fff",
-                width: "75%",
-              }}
+              className={classes.friends}
             >
               <Typography
                 style={{
@@ -522,54 +571,30 @@ const MainScreen = (props) => {
                 Invite Friends and Earn
               </Typography>
               <Typography
-                style={{
-                  fontSize: "3rem",
-                  paddingLeft: "15px",
-                  fontWeight: 700,
-                }}
+               className={classes.fifty}
               >
                 $50
               </Typography>
             </div>
             <div>
               <Typography
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  marginLeft: 33,
-                  color: "#fff",
-                  width: "75%",
-                  marginTop: "30px",
-                }}
+                className={classes.friendsText}
               >
                 Praesent egestas tristique nibh. Duis lobortis massa imperdiet
                 quam.
               </Typography>
             </div>
             <div
-              style={{
-                marginLeft: 33,
-                marginTop: 10,
-                display: "flex",
-                alignItems: "center",
-              }}
+              className={classes.enter}
             >
               <TextField
                 size="small"
                 placeholder="Enter"
-                style={{
-                  width: "40%",
-                  borderRadius: "6px",
-                  color: "rgb(255, 255, 255)",
-                }}
+                className={classes.enterText}
               ></TextField>
               <Button
                 variant="contained"
-                style={{
-                  marginLeft: 5,
-                  backgroundColor: "rgb(255, 193, 7)",
-                  color: "rgb(33, 43, 54)",
-                }}
+               className={classes.enterButton}
               >
                 Invite
               </Button>

@@ -1,5 +1,6 @@
 import * as React from "react";
-import { styled, useTheme } from "@mui/material/styles";
+import { styled, useTheme} from "@mui/material/styles";
+import { makeStyles } from "@mui/styles";
 import Box from "@mui/material/Box";
 import MuiDrawer from "@mui/material/Drawer";
 import MuiAppBar from "@mui/material/AppBar";
@@ -22,6 +23,18 @@ import AccountBalanceOutlinedIcon from '@mui/icons-material/AccountBalanceOutlin
 
 const drawerWidth = 240;
 
+const useStyles = makeStyles((theme) => ({
+  app:{
+    opacity:0.9,backgroundColor:"#ffff",boxShadow:"none"
+  },
+  badge:{
+    display: "flex", alignItems: "center",justifyContent:"space-around",width:'15%',
+    [theme.breakpoints.down("sm")]: {
+      width: '25%',
+    },
+  }
+}))
+
 const openedMixin = (theme) => ({
   width: drawerWidth,
   transition: theme.transitions.create("width", {
@@ -40,6 +53,9 @@ const closedMixin = (theme) => ({
   width: `calc(${theme.spacing(7)} + 1px)`,
   [theme.breakpoints.up("sm")]: {
     width: `calc(${theme.spacing(8)} + 1px)`,
+  },
+  [theme.breakpoints.down("sm")]: {
+   display:'none',
   },
 });
 
@@ -74,6 +90,7 @@ const Drawer = styled(MuiDrawer, {
   shouldForwardProp: (prop) => prop !== "open",
 })(({ theme, open }) => ({
   width: drawerWidth,
+  
   flexShrink: 0,
   whiteSpace: "nowrap",
   boxSizing: "border-box",
@@ -89,6 +106,7 @@ const Drawer = styled(MuiDrawer, {
 
 export const DrawerComponent = (props) => {
   const theme = useTheme();
+  const classes = useStyles()
   const [open, setOpen] = React.useState(false);
 
   const handleDrawerOpen = () => {
@@ -102,7 +120,7 @@ export const DrawerComponent = (props) => {
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
-      <AppBar position="fixed" open={open}  style={{opacity:0.9,backgroundColor:"#ffff",boxShadow:"none"}}>
+      <AppBar position="fixed" open={open} className={classes.app}>
         <Toolbar
           style={{
             display: "flex",
@@ -126,21 +144,17 @@ export const DrawerComponent = (props) => {
 
             <Search color="primary"/>
           </Box>
-          <div style={{ display: "flex", alignItems: "center",justifyContent:"space-around",width:'15%'}}>
+          <Box className={classes.badge}>
             <img src="https://minimal-assets-api.vercel.app/assets/icons/ic_flag_en.svg" alt="flag"></img>
             <Badge badgeContent={4} color="primary">
               <NotificationsNoneIcon color="action" />
             </Badge>
             <PeopleOutlineIcon  color="primary"/>
             <Avatar src="https://res.cloudinary.com/minimal-ui/image/upload/v1614655910/upload_minimal/avatar/minimal_avatar.jpg" />       
-          </div>
+          </Box>
         </Toolbar>
       </AppBar>
-      <Drawer variant="permanent" open={open} style={{
-        "& :hover":{
-          width:drawerWidth
-        }
-      }}>
+      <Drawer variant="permanent" open={open}>
         <DrawerHeader>
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === "rtl" ? (

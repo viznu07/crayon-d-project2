@@ -8,6 +8,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { Avatar, Typography } from '@mui/material';
+import MoreVertIcon from '@mui/icons-material/MoreVert';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   borderBottom:"none",
@@ -142,7 +143,7 @@ export const CustomizedTables =()=>{
               <StyledTableCell align="center">{row.date}</StyledTableCell>
               <StyledTableCell align="right">{row.amount}</StyledTableCell>
               <StyledTableCell align="right">{row.status}</StyledTableCell>
-              <StyledTableCell align="right">{}</StyledTableCell>
+              <StyledTableCell align="right"><MoreVertIcon/></StyledTableCell>
             </StyledTableRow>
           ))}
         </TableBody>

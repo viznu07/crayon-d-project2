@@ -50,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     position: "relative",
     padding:'15px',
-    width:"100%"
+    width:"100%",
   },
 }));
 

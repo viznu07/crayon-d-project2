@@ -16,6 +16,9 @@ const useStyles = makeStyles((theme) => ({
   },
     content: {
       marginLeft: drawerWidth,
+      [theme.breakpoints.down('sm')]: {
+        marginLeft:5,
+      },
       height: "100%",
       overflow: "auto",
     },
